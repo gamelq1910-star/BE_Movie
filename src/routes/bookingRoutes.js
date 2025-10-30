@@ -40,7 +40,7 @@ router.get("/", verifyToken, requireAdmin, async (req, res) => {
       .sort({ createdAt: -1 })
       .lean();
 
-    // ✅ Format dữ liệu trả về với thông tin rạp chính xác
+    // Format dữ liệu trả về
     const formattedBookings = bookings.map((booking) => ({
       _id: booking._id,
       bookingId: booking.bookingCode || booking._id.toString().slice(-8),
@@ -56,8 +56,8 @@ router.get("/", verifyToken, requireAdmin, async (req, res) => {
       movieTitle: booking.movieTitle,
       moviePoster: booking.moviePoster,
 
-      // ✅ QUAN TRỌNG: Cinema info - Lấy từ cinemaInfo thay vì hardcode
-      systemName: booking.cinemaInfo?.systemName || "Hệ thống rạp",
+      // Cinema info
+      systemName: booking.cinemaInfo?.systemName || "",
       clusterName: booking.cinemaInfo?.clusterName || "Cụm rạp",
       hallName: booking.cinemaInfo?.hallName || "Phòng chiếu",
 
@@ -97,9 +97,7 @@ router.get("/", verifyToken, requireAdmin, async (req, res) => {
   }
 });
 
-// ==========================================
-// ✅ GET /api/bookings/:id - Lấy chi tiết 1 booking
-// ==========================================
+// 🆕 GET /api/bookings/:id - Lấy chi tiết 1 booking
 router.get("/:id", verifyToken, async (req, res) => {
   try {
     const booking = await Booking.findById(req.params.id)
@@ -113,7 +111,7 @@ router.get("/:id", verifyToken, async (req, res) => {
       });
     }
 
-    // ✅ Format dữ liệu với thông tin rạp chính xác
+    // Format dữ liệu
     const formattedBooking = {
       _id: booking._id,
       bookingId: booking.bookingCode || booking._id.toString().slice(-8),
@@ -127,8 +125,7 @@ router.get("/:id", verifyToken, async (req, res) => {
       movieTitle: booking.movieTitle,
       moviePoster: booking.moviePoster,
 
-      // ✅ QUAN TRỌNG: Cinema info - Lấy từ cinemaInfo
-      systemName: booking.cinemaInfo?.systemName || "Hệ thống rạp",
+      systemName: booking.cinemaInfo?.systemName || "CGV",
       clusterName: booking.cinemaInfo?.clusterName || "Cụm rạp",
       hallName: booking.cinemaInfo?.hallName || "Phòng chiếu",
 

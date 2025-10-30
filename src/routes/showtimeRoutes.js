@@ -1,8 +1,9 @@
 import express from "express";
 import {
   listShowtimes,
+  getShowtimeById,
   createShowtimes,
-  getShowtimeById, // import mới
+  deleteShowtimesByMovie,
 } from "../controller/showtimeController.js";
 
 const router = express.Router();
@@ -10,8 +11,11 @@ const router = express.Router();
 // GET /api/showtimes
 router.get("/", listShowtimes);
 
-// GET /api/showtimes/:id
-router.get("/:id", getShowtimeById);
+// DELETE /api/showtimes/movie/:movieId (phải đặt trước /:showtimeId)
+router.delete("/movie/:movieId", deleteShowtimesByMovie);
+
+// GET /api/showtimes/:showtimeId
+router.get("/:showtimeId", getShowtimeById);
 
 // POST /api/showtimes
 router.post("/", createShowtimes);

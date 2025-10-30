@@ -18,10 +18,10 @@ const ShowtimeSchema = new mongoose.Schema(
     hallId: { type: String, required: true },
     startTime: { type: String, required: true },
     endTime: { type: String },
-    price: { type: Number, required: true },
+    price: { type: Number, required: true }, // Giá cơ bản (regular)
     priceBySeatType: {
-      regular: Number,
-      vip: Number,
+      regular: { type: Number, default: 100000 },
+      vip: { type: Number, default: 150000 },
     },
     date: { type: String, required: true },
     availableSeats: { type: Number, default: 100 },

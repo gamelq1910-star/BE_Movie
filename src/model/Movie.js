@@ -16,7 +16,6 @@ const MovieSchema = new mongoose.Schema(
     cast: { type: [String], default: [] },
     imdbRating: { type: Number, default: 0 },
     isHot: { type: Boolean, default: false },
-    isComingSoon: { type: Boolean, default: false },
     status: {
       type: String,
       enum: ["showing", "coming_soon"],
