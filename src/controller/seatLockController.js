@@ -1,9 +1,7 @@
 import mongoose from "mongoose";
 import SeatLock from "../model/SeatLock.js";
-import Showtime from "../model/showtime.js";
+import Showtime from "../model/Showtime.js";
 import Booking from "../model/Booking.js";
-import Cinema from "../model/Cinema.js";
-import CinemaSystem from "../model/CinemaSystem.js";
 
 // =======================================================
 // ✅ GIỮ GHẾ (LOCK SEATS)
