@@ -1,4 +1,4 @@
-import Showtime from "../model/showtime.js";
+import Showtime from "../model/Showtime.js";
 
 // GET /api/showtimes
 export const listShowtimes = async (req, res) => {
