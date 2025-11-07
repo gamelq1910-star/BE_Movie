@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "name": "be-movie",
   "builds": [
     {
       "src": "index.js",
@@ -9,10 +10,15 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.js"
+      "dest": "index.js"
     }
   ],
   "env": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "MONGODB_URI": "mongodb+srv://RapPhim:rapphim2025@cluster0.lvcaenq.mongodb.net/",
+    "JWT_SECRET": "01012025",
+    "PORT": 5000,
+    "CLIENT_URL": "http://localhost:3000",
+    "JWT_EXPIRES": "1h"
   }
 }
