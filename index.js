@@ -92,7 +92,7 @@ app.use("/api/cinemas", cinemaRoutes);
 app.use("/api/rooms", roomRoutes);
 app.use("/api/seat-locks", seatLockRoutes);
 app.use("/api/bookings", bookingRoutes);
-app.use("/api/combos", comboRoutes); // ✅ Thêm dòng này
+app.use("/api/combos", comboRoutes);
 
 // ===== Example protected routes =====
 app.use("/api/combos", comboRoutes);
